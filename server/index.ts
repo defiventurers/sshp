@@ -58,6 +58,11 @@ app.use((req, res, next) => {
   next();
 });
 
+/** Health check for Vercel / monitoring */
+app.get("/api/health", (_req, res) => {
+  res.json({ status: "OK" });
+});
+
 (async () => {
   // Seed database with initial data
   try {
